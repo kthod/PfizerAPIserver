@@ -31,7 +31,9 @@ app = FastAPI(
     description="API for quantum optimization of scheduling problems",
     version="1.0.0"
 )
-
+@app.get("/")            # the root path
+async def read_root():
+    return {"status": "ok"}
 class OptimizationRequest(BaseModel):
     num_jobs: int
     num_tasks: int
